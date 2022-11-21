@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { H1 } from "../custom/Typography";
 import { FacebookIcon, TwitterIcon, InstagramIcon, EmailIcon } from "../icons";
-import { HiLocationMarker, HiPhone } from 'react-icons/Hi';
+import { HiLocationMarker, HiPhone } from 'react-icons/hi';
 import footerImg from "../../../public/footer-bg.png";
 
 const Footer = () => {
