@@ -1,0 +1,1 @@
+import {default as PostCard} from "./PostCard.component";
