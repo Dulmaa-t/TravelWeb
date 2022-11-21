@@ -15,7 +15,7 @@ const navlist: {
         },
         {
             name: "About",
-            path: '#',
+            path: '/About',
             type: 'default'
         },
         {

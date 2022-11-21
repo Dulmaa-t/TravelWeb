@@ -11,7 +11,7 @@ interface ISliderCard {
 const SliderCard: FunctionComponent<ISliderCard> = () => {
 
     return (
-        <div className="bg-white p-8 text-[16px] text-[#999999] font-sans">
+        <div className="bg-white p-8 text-[16px] text-grey-light font-sans">
             <p className="">
                 Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
             </p>
