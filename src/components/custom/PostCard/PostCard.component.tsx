@@ -2,16 +2,17 @@ import { FunctionComponent } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Image1 from "../.././../../public/image_1.png";
+import {IPost} from '../../../dto/Tour';
 
 export interface IPostCard {
-
+    el:IPost
 }
 
-const PostCard: FunctionComponent<IPostCard> = () => {
+const PostCard: FunctionComponent<IPostCard> = ({el}) => {
     return (
-        <div className="flex flex-col p-2">
+        <div className="flex flex-col py-20">
             <Link className="relative" href={`/`}>
-                <Image src={Image1} alt="" />
+                <Image layout="fill" src={el.thumbnail} alt="" />
                 <div className="flex flex-row bg-warning text-white w-[130px] rounded-tr-[30px] px-3 absolute bottom-0">
                     <div className="mr-2 text-[50px]">
                         <span>21</span>
@@ -24,10 +25,10 @@ const PostCard: FunctionComponent<IPostCard> = () => {
             </Link>
             <div className="my-4">
                 <Link href={`/`}>
-                    <h1 className="text-[20px] font-bold hover:text-warning">Why Lead Generation is Key for Business Growth</h1>
+                    <h1 className="text-[20px] font-bold hover:text-warning">{el.title}</h1>
                 </Link>
                 <Link href={`/`}>
-                    <p className="text-grey-light py-4">A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                    <p className="text-grey-light py-4">{el.brief}</p>
                 </Link>
             </div>
         </div>

@@ -5,44 +5,45 @@ import destination1 from "../../../../public/destination-1.png";
 import { BsFillMapFill } from 'react-icons/Bs';
 import { FaUmbrellaBeach, FaShower } from 'react-icons/fa';
 import { MdOutlineBed } from 'react-icons/md';
+import {ICountry, ITour} from '../../../dto/Tour'
 
 interface ICustomCard {
-
+    el: ITour
 }
 
 
-const CustomCard: FunctionComponent<ICustomCard> = () => {
+const CustomCard: FunctionComponent<ICustomCard> = ({el}) => {
 
     return (
         <div className="w-full h-full font-open flex flex-col border box-border">
             <Link className="" href={`/`} passHref>
                 <div className="h-[270px] w-full relative">
-                    <Image layout="fill" objectFit="cover" src={destination1} alt="nft-creator" />
+                    <Image layout="fill" objectFit="cover" src={el.thumbnail} alt="nft-creator" />
                 </div>
             </Link>
             <div className="w-full flex-1 bg-white ">
                 <div className={`w-full h-full flex flex-col py-8 rounded-b-2xl px-4 relative`}>
                     <Link href={`/`} passHref>
-                        <span style={{ top: '-20px' }} className="absolute bg-black text-white px-4 py-2 left-28 rounded-full hover:bg-warning">$300/person</span>
-                        <span className="text-[12px] text-grey-light">8 Days Tour</span>
-                        <h1 className="cursor-pointer text-xl lg:text-2xl font-normal mb-2 text-[23px]">Bali, Indonesia</h1>
+                        <span style={{ top: '-20px' }} className="absolute bg-black text-white px-4 py-2 rounded-full hover:bg-warning">${el.price}/person</span>
+                        <span className="text-[12px] text-grey-light">{el.duration} Days Tour</span>
+                        <h1 className="cursor-pointer text-xl lg:text-2xl font-normal mb-2 text-[23px]">{el.destination}, {(el.country as ICountry).name}</h1>
                         <div className="flex flex-row text-grey-light mb-4">
                             <span className="mr-2 text-[13px] my-1"><BsFillMapFill /></span>
-                            <span className="justify-center text-[16px]">Bali, Indonesia</span>
+                            <span className="justify-center text-[16px]">{el.destination}, {(el.country as ICountry).name}</span>
                         </div>
                     </Link>
                     <ul className="flex flex-row">
                         <li className="pr-4 flex flex-row">
                             <span className="text-warning py-1 mr-2"><FaShower /></span>
-                            <span>2</span>
+                            <span>{el.shower_num}</span>
                         </li>
                         <li className="pr-4 flex flex-row">
                             <span className="text-warning py-1 mr-2"><MdOutlineBed/></span>
-                            <span>3</span>
+                            <span>{el.flat}</span>
                         </li>
                         <li className="pr-4 flex flex-row">
                             <span className="text-warning py-1 mr-2"><FaUmbrellaBeach /></span>
-                            <span>Near Mountain</span>
+                            <span>{el.place}</span>
                         </li>
                     </ul>
                 </div>

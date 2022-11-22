@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, FunctionComponent } from "react";
 import { Button } from "../components/custom/Button";
 import Link from "next/link";
 import Image from "next/image";
@@ -10,6 +10,12 @@ import { H3 } from "../components/custom/Typography";
 import { Card } from "../components/custom/Card";
 import { SliderCard } from "../components/custom/SliderCard";
 import PostCard from "../components/custom/PostCard/PostCard.component";
+
+import { useGetToursQuery } from "../redux/service/tourApi";
+import { useGetFeedbacksQuery } from "../redux/service/feedbackApi";
+import { useGetPostsQuery } from "../redux/service/postApi";
+import { useRouter } from "next/router";
+import { ITour, IFeedback } from "../dto/Tour";
 
 import about from "../../public/about.png";
 import place1 from '../../public/place-1.png';
@@ -25,8 +31,19 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
-const Home: NextPage = () => {
+export interface HomePageProps { }
+
+const Home: FunctionComponent<HomePageProps> = (): JSX.Element => {
+    const { data: tourData } = useGetToursQuery();
+    const { data: feedbackData } = useGetFeedbacksQuery();
+    const { data: postData } = useGetPostsQuery();
+    const route = useRouter();
+
     SwiperCore.use([Autoplay]);
+
+    useEffect(() => {
+        console.log(tourData)
+    }, [tourData])
 
     return <DashBoard path="Home">
         <div className="bg-grey py-20">
@@ -126,19 +143,18 @@ const Home: NextPage = () => {
         <div className="my-20 container mx-auto px-40">
             <H3 className="text-center">Tour Destination</H3>
             <div className="grid lg:grid-cols-3 md:grid-cols-1 gap-10 my-8 mx-6">
-                <div><Card /></div>
-                <div><Card /></div>
-                <div><Card /></div>
-                <div><Card /></div>
-                <div><Card /></div>
-                <div><Card /></div>
+                {
+                    tourData?.result.map((el: ITour, index: number) => (
+                        <div key={index}><Card el={el} /></div>
+                    ))
+                }
             </div>
         </div>
         <div className="h-[658px] w-full z-50 relative my-20">
             <Image className="" unoptimized priority layout="fill" src={bg3} alt="bg3" />
             <div className="absolute z-30 w-full h-full bottom-0 p-20">
                 <H3 className="text-center">Tourist Feedback</H3>
-                <div className="my-20 container mx-auto px-40">
+                <div className="my-20 container mx-auto lg:px-40 md:px-20">
                     <section className="w-full h-[20rem] relative">
                         <Swiper
                             className="h-full w-full"
@@ -150,8 +166,8 @@ const Home: NextPage = () => {
                                     spaceBetween: 20,
                                 },
                                 768: {
-                                    slidesPerView: 3,
-                                    spaceBetween: 40,
+                                    slidesPerView: 1,
+                                    spaceBetween: 20,
                                 },
                                 1024: {
                                     slidesPerView: 3,
@@ -165,44 +181,27 @@ const Home: NextPage = () => {
                                 disableOnInteraction: false,
                             }}
                         >
-                            <SwiperSlide className="shadow-xl rounded-2xl overflow-hidden" >
-                                <SliderCard />
-                            </SwiperSlide>
-                            <SwiperSlide className="shadow-xl rounded-2xl overflow-hidden" >
-                                <SliderCard />
-                            </SwiperSlide>
-                            <SwiperSlide className="shadow-xl rounded-2xl overflow-hidden" >
-                                <SliderCard />
-                            </SwiperSlide>
-                            <SwiperSlide className="shadow-xl rounded-2xl overflow-hidden" >
-                                <SliderCard />
-                            </SwiperSlide>
-                            <SwiperSlide className="shadow-xl rounded-2xl overflow-hidden" >
-                                <SliderCard />
-                            </SwiperSlide>
-                            <SwiperSlide className="shadow-xl rounded-2xl overflow-hidden" >
-                                <SliderCard />
-                            </SwiperSlide>
-                            <SwiperSlide className="shadow-xl rounded-2xl overflow-hidden" >
-                                <SliderCard />
-                            </SwiperSlide>
-                            <SwiperSlide className="shadow-xl rounded-2xl overflow-hidden" >
-                                <SliderCard />
-                            </SwiperSlide>
-                            <SwiperSlide className="shadow-xl rounded-2xl overflow-hidden" >
-                                <SliderCard />
-                            </SwiperSlide>
+
+                            {feedbackData?.result.map((el, index) => (
+                                <SwiperSlide className="shadow-xl rounded-2xl overflow-hidden"  key={index} >
+                                    <div><SliderCard el={el} /></div>
+                                </SwiperSlide>
+                            ))}
+
                         </Swiper>
                     </section>
                 </div>
             </div>
         </div>
-        <div className="my-20 container mx-auto px-40">
+        <div className="my-20 container mx-auto lg:px-40 md:px-40">
             <H3 className="text-center">Recent Post</H3>
             <div className="grid lg:grid-cols-3 md:grid-cols-1 gap-4 my-8">
-                <div><PostCard /></div>
-                <div><PostCard /></div>
-                <div><PostCard /></div>
+                {
+                    postData?.result.map((el, index) => (
+                        <div key={index}><PostCard el={el} /></div>
+                    ))
+                }
+
             </div>
         </div>
 

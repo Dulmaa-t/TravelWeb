@@ -5,7 +5,7 @@ import { ICountry } from "../dto/Tour";
 export class CountryService {
     public getCountries = async () => {
         try {
-            const countries = await Country.find().lean().populate('travels');
+            const countries = await Country.find();
             return countries;
         } catch (err) {
             console.log(err);
