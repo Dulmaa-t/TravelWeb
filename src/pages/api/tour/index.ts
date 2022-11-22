@@ -14,6 +14,8 @@ export default async function tourHandler(
             return controller.getTours(req, res);
         case "POST":
             return controller.registerTour(req, res);
+        case "delete":
+            return controller.deleteTour(req, res);
         default:
             return res.status(404).json({
                 message: "api not found",

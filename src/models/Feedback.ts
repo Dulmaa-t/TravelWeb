@@ -1,4 +1,4 @@
-import { Schema, model, Model } from "mongoose";
+import mongoose, { Schema, model, Model } from "mongoose";
 import { IFeedback } from "../dto/Tour";
 
 const FeedbackSchema: Schema = new Schema<IFeedback>({
@@ -20,7 +20,7 @@ const FeedbackSchema: Schema = new Schema<IFeedback>({
     },
 });
 
-export default model<
+export default mongoose.models.Feedback || model<
     Schema<
         any,
         Model<any, any, any, any, any>,

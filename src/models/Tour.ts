@@ -1,4 +1,4 @@
-import { Schema, model, Model, Types } from "mongoose";
+import mongoose, { Schema, model, Model, Types } from "mongoose";
 import { ITour } from "../dto/Tour";
 import Country from "./Country";
 
@@ -8,7 +8,8 @@ const TourSchema: Schema = new Schema<ITour>({
         required: true,
     },
     country: {
-        type: String,
+        type: Types.ObjectId,
+        ref: 'Country',
         required: true,
     },
     price: {
@@ -37,7 +38,7 @@ const TourSchema: Schema = new Schema<ITour>({
     },
 });
 
-export default model<
+export default mongoose.models.Tour || model<
     Schema<
         any,
         Model<any, any, any, any, any>,

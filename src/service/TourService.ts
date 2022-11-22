@@ -5,7 +5,7 @@ import { ITour } from "../dto/Tour";
 export class TourService {
     public getTours = async () => {
         try {
-            const tours = await Tour.find();
+            const tours = await Tour.find().lean().populate('country').exec();
             return tours;
         } catch (err) {
             console.log(err);
@@ -19,7 +19,19 @@ export class TourService {
             return tour;
         } catch (err) {
             console.log(err);
-            if(err instanceof CustomException){
+            if (err instanceof CustomException) {
+                throw new CustomException(err.status, err.message);
+            }
+        }
+    };
+
+    public deleteTour = async (id: string) => {
+        try {
+            const tour = await Tour.findByIdAndDelete(id);
+            return tour;
+        } catch (err) {
+            console.log(err);
+            if (err instanceof CustomException) {
                 throw new CustomException(err.status, err.message);
             }
         }

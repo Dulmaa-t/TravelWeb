@@ -1,4 +1,4 @@
-import { Schema, model, Model, Types } from "mongoose";
+import mongoose, { Schema, model, Model, Types } from "mongoose";
 import { ICountry } from "../dto/Tour";
 
 interface ICountryMethods {
@@ -19,7 +19,7 @@ const CountrySchema: Schema = new Schema<
     travels: [
         {
             type: Types.ObjectId,
-            ref: "tour",
+            ref: "Tour",
             required: true,
         },
     ],
@@ -29,6 +29,6 @@ CountrySchema.methods.addTour = function (id: string) {
     this.travels.push(id);
 };
 
-export default model<ICountry, CountryModel>("Country", CountrySchema);
+export default mongoose.models.Country || model<ICountry, CountryModel>("Country", CountrySchema);
 
 // [fn, {isloading, error}] = use;

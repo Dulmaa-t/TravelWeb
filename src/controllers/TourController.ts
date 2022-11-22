@@ -50,4 +50,24 @@ export class TourController {
             });
         }
     }
+
+    public async deleteTour(req: NextApiRequest, res: NextApiResponse) {
+        try {
+            const tour = await this.tourService.deleteTour(req.body.id);
+            res.status(201).json({
+                result: {
+                    message: 'done!'
+                },
+            });
+        } catch (err) {
+            if (err instanceof CustomException) {
+                res.status(err.status).json({
+                    message: err.message,
+                });
+            }
+            res.status(400).json({
+                message: "something went wrong!",
+            });
+        }
+    }
 }
