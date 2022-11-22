@@ -18,7 +18,7 @@ module.exports = {
         },
         grey: {
           dark: '#ffffff0d',
-          light: '#ffffff80',
+          light: '#999999',
           DEFAULT: '#f9fafb'
         },
         warning: {
