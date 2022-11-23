@@ -53,7 +53,7 @@ const ContactPage: FunctionComponent<ContactPageProps> = () => {
                 <p className="text-grey-light text-center">yoursite.com</p>
             </div>
         </div>
-        <div className="grid lg:grid-cols-2 md:grid-cols-1 container mx-auto lg:px-40 md:px-20 my-20 ">
+        <div className="grid lg:grid-cols-2 md:grid-cols-1 container mx-auto lg:px-40 md:px-20 mb-20">
             <div className="w-full bg-black flex-1 h-[570px]">
                 <Map
                     height={100}
