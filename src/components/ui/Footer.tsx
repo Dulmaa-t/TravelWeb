@@ -9,10 +9,10 @@ import footerImg from "../../../public/footer-bg.png";
 const Footer = () => {
     return (
         <>
-            <footer className="h-[615px] w-full z-50 relative mt-20">
-                <Image unoptimized priority layout="fill" src={footerImg} alt={`art`} />
+            <footer className="h-[615px] w-full z-50 relative">
+                <Image unoptimized priority layout="fill" className="h-full" src={footerImg} alt={`art`} />
                 <div style={{ backgroundImage: '#201e25' }}  className="absolute z-30 w-full h-full bottom-0 p-20">
-                    <div className="container mx-auto lg:px-40 md:px-20 w-full mb-24 font-noto grid gap-10 lg:grid-cols-4 text-xs sm:text-sm md:text-base md:grid-cols-1 grid-cols">
+                    <div className="container mx-auto lg:px-40 md:px-0 w-full mb-24 font-noto grid gap-10 lg:grid-cols-4 text-xs sm:text-sm md:text-base md:grid-cols-4 grid-cols">
                         <div className="text-white">
                             <h1 className="text-base truncate font-bold mt-5 mb-3 md:text-lg lg:text-[18px] md:my-8">Vacation</h1>
                             <div className=" flex flex-col">

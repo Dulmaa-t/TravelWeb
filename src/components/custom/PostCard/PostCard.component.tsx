@@ -2,17 +2,19 @@ import { FunctionComponent } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Image1 from "../.././../../public/image_1.png";
-import {IPost} from '../../../dto/Tour';
+import { IPost } from '../../../dto/Tour';
 
 export interface IPostCard {
-    el:IPost
+    el: IPost
 }
 
-const PostCard: FunctionComponent<IPostCard> = ({el}) => {
+const PostCard: FunctionComponent<IPostCard> = ({ el }) => {
     return (
-        <div className="flex flex-col py-20">
+        <div className="flex flex-col py-20 px-2">
             <Link className="relative" href={`/`}>
-                <Image layout="fill" src={el.thumbnail} alt="" />
+                <div className=" h-[270px] w-full">
+                    <Image layout="fill" objectFit="cover" src={el.thumbnail} alt="" />
+                </div>
                 <div className="flex flex-row bg-warning text-white w-[130px] rounded-tr-[30px] px-3 absolute bottom-0">
                     <div className="mr-2 text-[50px]">
                         <span>21</span>

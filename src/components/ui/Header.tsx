@@ -20,17 +20,17 @@ const navlist: {
         },
         {
             name: "Destination",
-            path: '#',
+            path: '/Destination',
             type: 'default'
         },
         {
             name: "Blog",
-            path: '#',
+            path: '/Blog',
             type: 'default'
         },
         {
             name: "Contact",
-            path: '#',
+            path: '/Contact',
             type: 'default'
         },
         {
@@ -63,7 +63,7 @@ const Header = ({ path }: IHeader) => {
     }, []);
     return (
         <>
-            <header style={{ transition: "all .3s ease !important", position: fixHeader ? 'fixed' : 'absolute', backgroundColor: fixHeader ? 'white' : 'transparent' }} className="w-full z-[80] top-0 left-0">
+            <header style={{ transition: "all .3s ease !important", position: fixHeader ? 'fixed' : 'absolute', backgroundColor: fixHeader ? 'white' : 'transparent', boxShadow: fixHeader ? '0 2px 4px 0 rgba(0,0,0,.2)' : 'none'}} className="w-full z-[80] top-0 left-0">
                 <div className="container mx-auto flex flex-row justify-between">
                     <div className="px-40 flex">
                         <Link href={'/'}>

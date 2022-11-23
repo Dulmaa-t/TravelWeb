@@ -10,7 +10,7 @@ import { H3 } from "../components/custom/Typography";
 import { Card } from "../components/custom/Card";
 import { SliderCard } from "../components/custom/SliderCard";
 import PostCard from "../components/custom/PostCard/PostCard.component";
-
+import { FaRoute, FaMapMarkedAlt } from "react-icons/fa";
 import { useGetToursQuery } from "../redux/service/tourApi";
 import { useGetFeedbacksQuery } from "../redux/service/feedbackApi";
 import { useGetPostsQuery } from "../redux/service/postApi";
@@ -33,7 +33,7 @@ import 'swiper/css/scrollbar';
 
 export interface HomePageProps { }
 
-const Home: FunctionComponent<HomePageProps> = (): JSX.Element => {
+const HomePage: FunctionComponent<HomePageProps> = (): JSX.Element => {
     const { data: tourData } = useGetToursQuery();
     const { data: feedbackData } = useGetFeedbacksQuery();
     const { data: postData } = useGetPostsQuery();
@@ -45,27 +45,27 @@ const Home: FunctionComponent<HomePageProps> = (): JSX.Element => {
         console.log(tourData)
     }, [tourData])
 
-    return <DashBoard path="Home">
+    return <DashBoard path="/">
         <div className="bg-grey py-20">
             <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-4 container mx-auto px-40">
                 <div className="grid grid-cols-2 gap-4 mr-4">
                     <div className="">
-                        <Image className="w-32" src={icon} alt="" />
+                        <FaMapMarkedAlt className="text-warning text-[60px] my-2" />
                         <h1 className="text-[18px] text-[#000000cc] font-medium">Travel Arrangements</h1>
                         <p className="text-grey-light text-[16px]">A small river named Duden flows by their place and supplies it with the necessary</p>
                     </div>
                     <div className="">
-                        <Image className="w-32" src={icon} alt="" />
+                        <FaRoute className="text-warning text-[60px] my-2" />
                         <h1 className="text-[18px] text-[#000000cc] font-medium">Travel Arrangements</h1>
                         <p className="text-grey-light text-[16px]">A small river named Duden flows by their place and supplies it with the necessary</p>
                     </div>
                     <div className="">
-                        <Image className="w-32" src={icon} alt="" />
+                        <FaRoute className="text-warning text-[60px] my-2" />
                         <h1 className="text-[18px] text-[#000000cc] font-medium">Travel Arrangements</h1>
                         <p className="text-grey-light text-[16px]">A small river named Duden flows by their place and supplies it with the necessary</p>
                     </div>
                     <div className="">
-                        <Image className="w-32" src={icon} alt="" />
+                        <FaMapMarkedAlt className="text-warning text-[60px] my-2" />
                         <h1 className="text-[18px] text-[#000000cc] font-medium">Travel Arrangements</h1>
                         <p className="text-grey-light text-[16px]">A small river named Duden flows by their place and supplies it with the necessary</p>
                     </div>
@@ -183,7 +183,7 @@ const Home: FunctionComponent<HomePageProps> = (): JSX.Element => {
                         >
 
                             {feedbackData?.result.map((el, index) => (
-                                <SwiperSlide className="shadow-xl rounded-2xl overflow-hidden"  key={index} >
+                                <SwiperSlide className="rounded-2xl overflow-hidden" key={index} >
                                     <div><SliderCard el={el} /></div>
                                 </SwiperSlide>
                             ))}
@@ -208,4 +208,4 @@ const Home: FunctionComponent<HomePageProps> = (): JSX.Element => {
     </DashBoard>
 }
 
-export default Home;
+export default HomePage;
