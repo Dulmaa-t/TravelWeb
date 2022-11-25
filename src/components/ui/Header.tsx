@@ -46,6 +46,8 @@ interface IHeader {
 
 const Header = ({ path }: IHeader) => {
     const [fixHeader, setFixHeader] = useState<boolean>(false)
+    const [responsiveHeader, setresponsiveHeade] = useState<boolean>(false)
+
     useEffect(() => {
         const handleScroll = (_: any) => {
             if (window.scrollY >= 400) {

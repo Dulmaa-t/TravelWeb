@@ -47,8 +47,8 @@ const HomePage: FunctionComponent<HomePageProps> = (): JSX.Element => {
 
     return <DashBoard path="/">
         <div className="bg-grey py-20">
-            <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-4 container mx-auto px-40">
-                <div className="grid grid-cols-2 gap-4 mr-4">
+            <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-4 container mx-auto lg:px-40 md:px-20">
+                <div className="grid lg:grid-cols-2 md:grid-cols-2 gap-4 mr-4">
                     <div className="">
                         <FaMapMarkedAlt className="text-warning text-[60px] my-2" />
                         <h1 className="text-[18px] text-[#000000cc] font-medium">Travel Arrangements</h1>
@@ -83,7 +83,7 @@ const HomePage: FunctionComponent<HomePageProps> = (): JSX.Element => {
             </div>
         </div>
         <div>
-            <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-4 container mx-auto px-40">
+            <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-4 container mx-auto lg:px-40 md:px-10">
                 <div className="relative h-[500px] transition-all duration-300"><Image layout="fill" objectFit="cover" src={about} alt={`art`} /></div>
                 <div className="my-4 items-center px-16">
                     <h1 className="text-[40px] font-bold my-4" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>Make Your Tour Memorable and Safe With Us</h1>

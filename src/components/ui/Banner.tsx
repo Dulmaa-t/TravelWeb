@@ -13,16 +13,6 @@ import { Modal } from "../custom/Modal";
 
 export default function Cover() {
     const [open, setOpen] = useState(false);
-    // const videoElementRef = useRef();
-
-
-    // const videoPlayer = () => {
-    //     if (videoElementRef.current) {
-    //         setOpen(true)
-    //     } else {
-    //         setOpen(false)
-    //     }
-    // };
 
     const hide = () => {
         setOpen(false)
@@ -32,9 +22,6 @@ export default function Cover() {
         setOpen(true)
     }
 
-    // useEffect(() => {
-    //     return;
-    // }, [videoElementRef]);
 
     return (
         <>

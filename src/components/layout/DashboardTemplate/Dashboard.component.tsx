@@ -5,6 +5,7 @@ import Footer from "../../ui/Footer";
 import ContainerProvider from "../../../context/ContainerContext";
 import Image from "next/image";
 import Banner from "../../ui/Banner";
+import SubBanner from "../../ui/SubBanner";
 
 export interface DashBoardProps {
     children: ReactNode;
@@ -24,13 +25,17 @@ const DashboardComponents: FC<DashBoardProps> = ({ children, title, path }) => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Header path={path} />
-            <Banner />
+            {
+                (path !== "/") ? (
+                    <SubBanner />
+                ) : (
+                    <Banner />
+                )
+            }
             <div className="h-full">
                 {children}
             </div>
             <div>
-                {/* <div className="fixed w-full top-0 left-0 z-50"> */}
-                {/* </div> */}
                 <Footer />
             </div>
         </Fragment>
