@@ -23,7 +23,7 @@ const CustomCard: FunctionComponent<ICustomCard> = ({el}) => {
             </Link>
             <div className="w-full flex-1 bg-white ">
                 <div className={`w-full h-full flex flex-col py-8 rounded-b-2xl px-4 relative`}>
-                <span style={{ top: '-20px' }} className="absolute lg:left-28 sm:left-40 bg-black text-white px-4 py-2 rounded-full hover:bg-warning">${el.price}/person</span>
+                <span style={{ top: '-20px' }} className="absolute lg:left-28 flex justify-center items-center bg-black text-white px-4 py-2 rounded-full hover:bg-warning">${el.price}/person</span>
                     <Link href={`/`} passHref>
                         <span className="text-[12px] text-grey-light">{el.duration} Days Tour</span>
                         <h1 className="cursor-pointer text-xl lg:text-2xl font-normal mb-2 text-[23px]">{el.destination}, {(el.country as ICountry).name}</h1>
