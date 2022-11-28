@@ -2,6 +2,10 @@ import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "../custom/Button";
+import { FaChevronUp } from "react-icons/fa";
+import axios from "axios";
+import Hamburger from 'hamburger-react';
+
 
 const navlist: {
     name: string;
@@ -45,8 +49,14 @@ interface IHeader {
 }
 
 const Header = ({ path }: IHeader) => {
+    const chevron = useRef();
     const [fixHeader, setFixHeader] = useState<boolean>(false)
-    const [responsiveHeader, setresponsiveHeade] = useState<boolean>(false)
+    const [responsiveHeader, setresponsiveHeader] = useState<boolean>(false)
+    const [isOpen, setOpen] = useState(false)
+
+    const goTop = () => {
+        window.scroll({ top: 0, left: 0, behavior: "smooth" });
+    };
 
     useEffect(() => {
         const handleScroll = (_: any) => {
@@ -65,19 +75,18 @@ const Header = ({ path }: IHeader) => {
     }, []);
     return (
         <>
-            <header style={{ transition: "all .3s ease !important", position: fixHeader ? 'fixed' : 'absolute', backgroundColor: fixHeader ? 'white' : 'transparent', boxShadow: fixHeader ? '0 2px 4px 0 rgba(0,0,0,.2)' : 'none' }} className="w-full z-[80] top-0 left-0">
+           <header style={{ transition: "all .3s ease !important", position: fixHeader ? 'fixed' : 'absolute', backgroundColor: fixHeader ? 'white' : 'transparent', boxShadow: fixHeader ? '0 2px 4px 0 rgba(0,0,0,.2)' : 'none' }} className="w-full z-[80] top-0 left-0">
                 <div className="container mx-auto flex flex-row justify-between">
                     <div className="px-40 flex">
                         <Link href={'/'}>
                             <div className="flex flex-col bg-black text-white text-center py-4 px-8 w-[160px]">
-                                <div className="flex text-[24px]">Vacation</div>
-                                <div className="flex text-[11px]">
-                                    <span>TRAVEL AGENCY</span>
+                                <div className="flex text-[24px] font-bold">Vacation</div>
+                                <div className="flex text-[11px] font-bold tracking-wider uppercase">
+                                    <span>Travel Agency</span>
                                 </div>
                             </div>
                         </Link>
                     </div>
-            
                     <ul className="px-40 flex items-center">
                         {
                             navlist.map(({ name, type, path: route }, index) => (
@@ -91,8 +100,28 @@ const Header = ({ path }: IHeader) => {
                         }
                     </ul>
                 </div>
-            </header>
+                    </header> 
 
+             {/* <header style={{ transition: "all .3s ease !important", position: fixHeader ? 'fixed' : 'absolute', backgroundColor: fixHeader ? 'white' : 'black', color: fixHeader ? 'black' : 'white', boxShadow: fixHeader ? '0 2px 4px 0 rgba(0,0,0,.2)' : 'none' }} className="w-full z-[80] top-0 left-0">
+                <div className="container mx-auto flex flex-row justify-between">
+                    <div className="flex">
+                        <Link href={'/'}>
+                            <div className="flex flex-col bg-black text-white text-center py-4 px-8 w-[160px]">
+                                <div className="flex text-[24px] font-bold">Vacation</div>
+                                <div className="flex text-[11px] font-bold tracking-wider uppercase">
+                                    <span>Travel Agency</span>
+                                </div>
+                            </div>
+                        </Link>
+                    </div>
+                    <div className="flex justify-center items-center mx-4">
+                        <Hamburger toggled={isOpen} toggle={setOpen} />
+                    </div>
+                </div>
+                    </header> */}
+            <div onClick={goTop} className="fixed border border-white flex w-16 cursor-pointer rounded-full h-16 bg-gray-200 bottom-8 right-10 opacity-0 invisible transition duration-300 shadow-xl items-center justify-center text-[#666]">
+                <FaChevronUp />
+            </div>
         </>
     )
 }

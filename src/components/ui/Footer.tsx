@@ -9,14 +9,14 @@ import footerImg from "../../../public/footer-bg.png";
 const Footer = () => {
     return (
         <>
-            <footer className="h-[615px] w-full z-50 relative">
+            <footer className="h-[620px] w-full z-50 relative">
                 <Image unoptimized priority layout="fill" className="h-full" src={footerImg} alt={`art`} />
-                <div style={{ backgroundImage: '#201e25' }}  className="absolute z-30 w-full h-full bottom-0 p-20">
-                    <div className="container mx-auto lg:px-40 md:px-0 w-full mb-24 font-noto grid gap-10 lg:grid-cols-4 text-xs sm:text-sm md:text-base md:grid-cols-4 grid-cols">
+                <div style={{ backgroundImage: '#201e25' }}  className="absolute z-30 w-full h-full bottom-0 p-5" >
+                    <div className="container mx-auto lg:px-40 md:px-0 w-full mb-24 font-noto grid gap-10 lg:grid-cols-4 text-xs sm:text-sm md:text-base md:grid-cols-4 mt-20">
                         <div className="text-white">
                             <h1 className="text-base truncate font-bold mt-5 mb-3 md:text-lg lg:text-[18px] md:my-8">Vacation</h1>
                             <div className=" flex flex-col">
-                                <p className="flex text-white-light lg:text-[16px] font-medium leading-7 mb-14">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                                <p className="flex text-white-light lg:text-[16px] font-medium leading-7 mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
                                 <div className="flex flex flex-row gap-6 animated-bounce w-6 h-6">
                                     <div className="flex rounded-full bg-grey-dark h-[50px] w-[50px]">
                                         <Link passHref href={`https://www.facebook.com/`} className="inline-flex items-center px-3 py-3 fill-white">
@@ -148,10 +148,10 @@ const Footer = () => {
                             </div>
                         </div>
                     </div>
-                </div>
-                <div className="text-white-light text-center ">
+                    <div className="text-white-light text-center">
                     <p> Copyright ©2022 All rights reserved | This template is made with  by Colorlib</p>
                 </div>
+                </div>    
             </footer>
         </>
     )

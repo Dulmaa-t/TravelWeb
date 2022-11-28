@@ -4,3 +4,4 @@ export { default as InstagramIcon } from './Instagram.icon';
 export {default as EmailIcon} from './email.icon';
 export {default as PhoneIcon} from './phone.icon';
 export {default as LocationIcon} from './location.icon';
+export {default as BurgerIcon} from './burger.icon';

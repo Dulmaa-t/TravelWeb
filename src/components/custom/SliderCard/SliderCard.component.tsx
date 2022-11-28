@@ -1,4 +1,4 @@
-import { FunctionComponent, ReactNode } from "react";
+import { FunctionComponent, ReactNode, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import person1 from "../../../../public/person_1.png";
@@ -17,7 +17,7 @@ const SliderCard: FunctionComponent<ISliderCard> = ({ el }) => {
             <p className="">
                 {el.comment}
             </p>
-            <div className="flex flex-row align-items-center mt-10">
+            <div className="flex flex-row align-items-center sm:mt-4 md:mt-4 lg:mt-4 xl:mt-8">
                 <div className="w-[80px] h-[80px]">
                     <Image width={100} height={100} className="rounded-full" src={el.avatar} alt="" />
                 </div>

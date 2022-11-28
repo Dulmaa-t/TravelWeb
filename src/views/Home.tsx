@@ -47,8 +47,8 @@ const HomePage: FunctionComponent<HomePageProps> = (): JSX.Element => {
 
     return <DashBoard path="/">
         <div className="bg-grey py-20">
-            <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-4 container mx-auto lg:px-40 md:px-20">
-                <div className="grid lg:grid-cols-2 md:grid-cols-2 gap-4 mr-4">
+            <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-4 container mx-auto lg:px-40 md:px-20 sm:px-20 px-5">
+                <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-2 gap-4">
                     <div className="">
                         <FaMapMarkedAlt className="text-warning text-[60px] my-2" />
                         <h1 className="text-[18px] text-[#000000cc] font-medium">Travel Arrangements</h1>
@@ -83,12 +83,12 @@ const HomePage: FunctionComponent<HomePageProps> = (): JSX.Element => {
             </div>
         </div>
         <div>
-            <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-4 container mx-auto lg:px-40 md:px-10">
+            <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-4 container mx-auto lg:px-40 md:px-10 px-5">
                 <div className="relative h-[500px] transition-all duration-300"><Image layout="fill" objectFit="cover" src={about} alt={`art`} /></div>
-                <div className="my-4 items-center px-16">
+                <div className="my-4 items-center px-5">
                     <h1 className="text-[40px] font-bold my-4" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>Make Your Tour Memorable and Safe With Us</h1>
                     <p className="text-grey-light text-[16px]">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-                    <div className="grid lg:grid-cols-3 md:grid-cols-3 my-8 md: my-4 text-center">
+                    <div className="grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-3 my-8 md: my-4 text-center">
                         <div className="flex flex-col">
                             <strong className="text-[28px] text-warning">300</strong>
                             <span className="text-grey-light text-[16px] my-2" style={{ color: 'rgba(0, 0, 0, 0.7)' }}>Successful Tours</span>
@@ -105,10 +105,10 @@ const HomePage: FunctionComponent<HomePageProps> = (): JSX.Element => {
                 </div>
             </div>
         </div>
-        <div className="py-20 container mx-auto px-40">
+        <div className="py-20 container mx-auto lg:px-40 md:px-20 sm:px-20">
             <H3 className="text-center">Best Place Destination</H3>
-            <div className="grid lg:grid-cols-4 md:grid-cols-1 text-center my-10 ">
-                <div className="relative h-[320px] transition-all duration-300 mx-6">
+            <div className="grid lg:grid-cols-4 md:grid-cols-1 text-center my-10">
+                <div className="relative h-[320px] transition-all duration-300 mx-6 mb-10">
                     <Link href={`/`}>
                         <Image className="rounded-lg" layout="fill" objectFit="cover" src={place1} alt="place1" />
                         <div className="relative z-20 text-white flex flex-col">
@@ -117,21 +117,21 @@ const HomePage: FunctionComponent<HomePageProps> = (): JSX.Element => {
                         </div>
                     </Link>
                 </div>
-                <div className="relative h-[320px] transition-all duration-300 mx-6">
+                <div className="relative h-[320px] transition-all duration-300 mx-6 mb-10">
                     <Image className="rounded-lg" layout="fill" objectFit="cover" src={place2} alt="place2" />
                     <div className="relative z-20 text-white flex flex-col">
                         <h3 className="text-[22px] absolute left-4 top-4">Canada</h3>
                         <span className="text-[20px] absolute right-0 top-60 bg-black px-4 py-1 rounded-full rounded-r-lg hover:bg-warning">2 Tours</span>
                     </div>
                 </div>
-                <div className="relative h-[320px] transition-all duration-300 mx-6">
+                <div className="relative h-[320px] transition-all duration-300 mx-6 mb-10">
                     <Image className="rounded-lg" layout="fill" objectFit="cover" src={place3} alt="place3" />
                     <div className="relative z-20 text-white flex flex-col">
                         <h3 className="text-[22px] absolute left-4 top-4">Thailand</h3>
                         <span className="text-[20px] absolute right-0 top-60 bg-black px-4 py-1 rounded-full rounded-r-lg hover:bg-warning">5 Tours</span>
                     </div>
                 </div>
-                <div className="relative h-[320px] transition-all duration-300 mx-6">
+                <div className="relative h-[320px] transition-all duration-300 mx-6 mb-10">
                     <Image className="rounded-lg" layout="fill" objectFit="cover" src={place4} alt="place4" />
                     <div className="relative z-20 text-white flex flex-col">
                         <h3 className="text-[22px] absolute left-4 top-4">Autralia</h3>
@@ -140,7 +140,7 @@ const HomePage: FunctionComponent<HomePageProps> = (): JSX.Element => {
                 </div>
             </div>
         </div>
-        <div className="my-20 container mx-auto px-40">
+        <div className="container mx-auto lg:px-40 md:px-20 sm:px-20">
             <H3 className="text-center">Tour Destination</H3>
             <div className="grid lg:grid-cols-3 md:grid-cols-1 gap-10 my-8 mx-6">
                 {
@@ -150,16 +150,16 @@ const HomePage: FunctionComponent<HomePageProps> = (): JSX.Element => {
                 }
             </div>
         </div>
-        <div className="h-[658px] w-full z-50 relative my-20">
+        <div className="h-[658px] w-full z-50 relative">
             <Image className="" unoptimized priority layout="fill" src={bg3} alt="bg3" />
-            <div className="absolute z-30 w-full h-full bottom-0 p-20">
+            <div className="absolute z-30 w-full h-full bottom-0 p-5">
                 <H3 className="text-center">Tourist Feedback</H3>
-                <div className="my-20 container mx-auto lg:px-40 md:px-20">
-                    <section className="w-full h-[20rem] relative">
+                <div className="my-20 container mx-auto xl:px-40 lg:px-0 md:px-10 sm:px-10">
+                    <section className="w-full h-[24rem] relative">
                         <Swiper
                             className="h-full w-full"
                             slidesPerView={1}
-                            spaceBetween={40}
+                            spaceBetween={20}
                             breakpoints={{
                                 640: {
                                     slidesPerView: 1,
@@ -167,7 +167,7 @@ const HomePage: FunctionComponent<HomePageProps> = (): JSX.Element => {
                                 },
                                 768: {
                                     slidesPerView: 1,
-                                    spaceBetween: 20,
+                                    spaceBetween: 30,
                                 },
                                 1024: {
                                     slidesPerView: 3,
@@ -193,7 +193,7 @@ const HomePage: FunctionComponent<HomePageProps> = (): JSX.Element => {
                 </div>
             </div>
         </div>
-        <div className="my-20 container mx-auto lg:px-40 md:px-40">
+        <div className="my-20 container mx-auto lg:px-40 md:px-20 px-5">
             <H3 className="text-center">Recent Post</H3>
             <div className="grid lg:grid-cols-3 md:grid-cols-1 gap-4 my-8">
                 {
