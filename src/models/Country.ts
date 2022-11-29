@@ -22,11 +22,22 @@ const CountrySchema: Schema = new Schema<
             ref: "Tour",
             required: true,
         },
+    ],    
+    places: [
+        {
+            type: Types.ObjectId,
+            ref: "Place",
+            required: true,
+        },
     ],
 });
 
 CountrySchema.methods.addTour = function (id: string) {
     this.travels.push(id);
+};
+
+CountrySchema.methods.addPlace = function (id: string) {
+    this.places.push(id);
 };
 
 export default mongoose.models.Country || model<ICountry, CountryModel>("Country", CountrySchema);

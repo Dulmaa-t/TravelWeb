@@ -6,6 +6,8 @@ import ContainerProvider from "../../../context/ContainerContext";
 import Image from "next/image";
 import Banner from "../../ui/Banner";
 import SubBanner from "../../ui/SubBanner";
+import { MobileNav } from "../../custom/Navigation";
+
 
 export interface DashBoardProps {
     children: ReactNode;
@@ -17,7 +19,6 @@ const DashboardComponents: FC<DashBoardProps> = ({ children, title, path }) => {
     // const scrollY = useCallback((e: any) => {
     //     console.log(window.scrollY)
     // }, [])
-
 
     return (
         <Fragment>
@@ -32,7 +33,7 @@ const DashboardComponents: FC<DashBoardProps> = ({ children, title, path }) => {
                     <Banner />
                 )
             }
-            
+            <MobileNav />    
             <div className="h-full">
                 {children}
             </div>

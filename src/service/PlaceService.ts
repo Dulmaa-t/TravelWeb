@@ -5,7 +5,7 @@ import { IPlace } from "../dto/Tour";
 export class PlaceService {
     public getPlaces = async () => {
         try {
-            const places = await Place.find();
+            const places = await Place.find().lean().populate('country').exec();
             return places;
         } catch (err) {
             console.log(err);

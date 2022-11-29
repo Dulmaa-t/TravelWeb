@@ -1,12 +1,9 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-
-const mobileNavlist: {
-    name: string;
-    path: string;
-    type: 'default' | 'button'
-}[] = [
+import { useNavigationContext } from "../../custom/Navigation/_context";
+const mobileNavlist = 
+    [
         {
             name: "Home",
             path: '/',
@@ -37,14 +34,12 @@ const mobileNavlist: {
             path: '#',
             type: 'button'
         },
-    ]
+    ]  
 
-interface IMobileNav {
-    path: string;
-}
 
-const MobileNav = ({ path }: IMobileNav) => {
+const MobileNav = () => {
     const [fixHeader, setFixHeader] = useState<boolean>(false)
+    const { isSidebarOpen } =  useNavigationContext();
 
     useEffect(() => {
         const handleScroll = (_: any) => {
@@ -64,12 +59,12 @@ const MobileNav = ({ path }: IMobileNav) => {
 
     return (
         <>
-            <div className="bg-white flex flex-col gap-4 p-5">
+            <div style={{position: fixHeader ? 'fixed' : 'absolute', backgroundColor: fixHeader ? 'white' : 'black'}} className={`fixed top-20 left-0 w-full z-50 flex flex-col gap-4 p-5 lg:hidden md:hidden  sm:hidden ${isSidebarOpen ? 'translate-y-0' : '-translate-y-[100%]'} transition`}>
                 {
-                    mobileNavlist.map(({name, type, path: route}, index) => (
+                    mobileNavlist.map(({name, type, path}, index) => (
                         type === 'button' ? <button className="rounded bg-warning py-2">{name}</button> :
                         <Link href={path}>
-                            <p className={`py-[13px] px-[18px] text-[15px] ${path === route ? 'text-warning' : fixHeader ? 'text-black' : 'text-white'}`}>{name}</p>
+                            <p style={{color: fixHeader ? 'black' : 'white'}} className={`py-[13px] px-[18px] text-[15px]`}>{name}</p>
                         </Link> 
                     ))
                 }

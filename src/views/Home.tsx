@@ -9,13 +9,15 @@ import { NextPage } from "next";
 import { H3 } from "../components/custom/Typography";
 import { Card } from "../components/custom/Card";
 import { SliderCard } from "../components/custom/SliderCard";
+import PlaceCard from "../components/custom/PlaceCard/PLaceCard.component";
 import PostCard from "../components/custom/PostCard/PostCard.component";
 import { FaRoute, FaMapMarkedAlt } from "react-icons/fa";
 import { useGetToursQuery } from "../redux/service/tourApi";
 import { useGetFeedbacksQuery } from "../redux/service/feedbackApi";
 import { useGetPostsQuery } from "../redux/service/postApi";
+import { useGetPlacesQuery } from "../redux/service/placeApi";
 import { useRouter } from "next/router";
-import { ITour, IFeedback } from "../dto/Tour";
+import { ITour, IFeedback, IPlace } from "../dto/Tour";
 
 import about from "../../public/about.png";
 import place1 from '../../public/place-1.png';
@@ -34,6 +36,7 @@ import 'swiper/css/scrollbar';
 export interface HomePageProps { }
 
 const HomePage: FunctionComponent<HomePageProps> = (): JSX.Element => {
+    const { data: placeData } = useGetPlacesQuery();
     const { data: tourData } = useGetToursQuery();
     const { data: feedbackData } = useGetFeedbacksQuery();
     const { data: postData } = useGetPostsQuery();
@@ -108,36 +111,11 @@ const HomePage: FunctionComponent<HomePageProps> = (): JSX.Element => {
         <div className="py-20 container mx-auto lg:px-40 md:px-20 sm:px-20">
             <H3 className="text-center">Best Place Destination</H3>
             <div className="grid lg:grid-cols-4 md:grid-cols-1 text-center my-10">
-                <div className="relative h-[320px] transition-all duration-300 mx-6 mb-10">
-                    <Link href={`/`}>
-                        <Image className="rounded-lg" layout="fill" objectFit="cover" src={place1} alt="place1" />
-                        <div className="relative z-20 text-white flex flex-col">
-                            <h3 className="text-[22px] absolute left-4 top-4">Singapore</h3>
-                            <span className="text-[20px] absolute right-0 top-60 bg-black px-4 py-1 rounded-full rounded-r-lg hover:bg-warning">8 Tours</span>
-                        </div>
-                    </Link>
-                </div>
-                <div className="relative h-[320px] transition-all duration-300 mx-6 mb-10">
-                    <Image className="rounded-lg" layout="fill" objectFit="cover" src={place2} alt="place2" />
-                    <div className="relative z-20 text-white flex flex-col">
-                        <h3 className="text-[22px] absolute left-4 top-4">Canada</h3>
-                        <span className="text-[20px] absolute right-0 top-60 bg-black px-4 py-1 rounded-full rounded-r-lg hover:bg-warning">2 Tours</span>
-                    </div>
-                </div>
-                <div className="relative h-[320px] transition-all duration-300 mx-6 mb-10">
-                    <Image className="rounded-lg" layout="fill" objectFit="cover" src={place3} alt="place3" />
-                    <div className="relative z-20 text-white flex flex-col">
-                        <h3 className="text-[22px] absolute left-4 top-4">Thailand</h3>
-                        <span className="text-[20px] absolute right-0 top-60 bg-black px-4 py-1 rounded-full rounded-r-lg hover:bg-warning">5 Tours</span>
-                    </div>
-                </div>
-                <div className="relative h-[320px] transition-all duration-300 mx-6 mb-10">
-                    <Image className="rounded-lg" layout="fill" objectFit="cover" src={place4} alt="place4" />
-                    <div className="relative z-20 text-white flex flex-col">
-                        <h3 className="text-[22px] absolute left-4 top-4">Autralia</h3>
-                        <span className="text-[20px] absolute right-0 top-60 bg-black px-4 py-1 rounded-full rounded-r-lg hover:bg-warning">5 Tours</span>
-                    </div>
-                </div>
+                {
+                    placeData?.result.map((el: IPlace, index: number) => (
+                        <div key={index}><PlaceCard el={el} /></div>
+                    ))
+                }
             </div>
         </div>
         <div className="container mx-auto lg:px-40 md:px-20 sm:px-20">

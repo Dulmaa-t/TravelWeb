@@ -16,6 +16,7 @@ export interface ICountry {
     _id?: string;
     name: string;
     travels: string[] | ObjectId[] | ITour[];
+    places: string[] | ObjectId[] | IPlace[];
 }
 
 export interface IFeedback {
