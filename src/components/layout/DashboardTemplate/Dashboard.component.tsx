@@ -33,7 +33,7 @@ const DashboardComponents: FC<DashBoardProps> = ({ children, title, path }) => {
                     <Banner />
                 )
             }
-            <MobileNav />    
+            <MobileNav />
             <div className="h-full">
                 {children}
             </div>

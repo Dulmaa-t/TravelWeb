@@ -54,8 +54,8 @@ const Header = ({ path }: IHeader) => {
     const [fixHeader, setFixHeader] = useState<boolean>(false)
     const [responsiveHeader, setresponsiveHeader] = useState<boolean>(false)
     const [isOpen, setOpen] = useState(false)
-    const { openSidebar,closeSidebar, toggleSidebar } = useNavigationContext();
-    const handleClick = ()=>{
+    const { openSidebar, closeSidebar, toggleSidebar } = useNavigationContext();
+    const handleClick = () => {
         setOpen(prev => !prev);
         toggleSidebar!();
     }
@@ -81,9 +81,9 @@ const Header = ({ path }: IHeader) => {
     }, []);
     return (
         <>
-            <header style={{ transition: "all .3s ease !important", position: fixHeader ? 'fixed' : 'absolute', backgroundColor: fixHeader ? 'white' : 'transparent', boxShadow: fixHeader ? '0 2px 4px 0 rgba(0,0,0,.2)' : 'none' }} className="w-full hidden sm:block  z-[80] top-0 left-0">
+            <header style={{ transition: "all .3s ease !important", position: fixHeader ? 'fixed' : 'absolute', backgroundColor: fixHeader ? 'white' : 'transparent', boxShadow: fixHeader ? '0 2px 4px 0 rgba(0,0,0,.2)' : 'none' }} className="w-full hidden sm:block md:block z-[80] top-0 left-0">
                 <div className="container mx-auto flex flex-row justify-between">
-                    <div className="px-40 flex">
+                    <div className="xl:px-40 lg:px-20 flex">
                         <Link href={'/'}>
                             <div className="flex flex-col bg-black text-white text-center py-4 px-8 w-[160px]">
                                 <div className="flex text-[24px] font-bold">Vacation</div>
@@ -93,7 +93,7 @@ const Header = ({ path }: IHeader) => {
                             </div>
                         </Link>
                     </div>
-                    <ul className="px-40  flex items-center">
+                    <ul className="px-40 flex items-center">
                         {
                             navlist.map(({ name, type, path: route }, index) => (
                                 type === 'button' ? <button className="py-[13px] px-[18px] text-[15px] text-white bg-warning rounded">{name}</button> :
@@ -124,7 +124,7 @@ const Header = ({ path }: IHeader) => {
                         <Hamburger toggled={isOpen} toggle={handleClick} />
                     </div>
                 </div>
-                    </header> 
+            </header>
             <div onClick={goTop} className="fixed border border-white flex w-16 cursor-pointer rounded-full h-16 bg-gray-200 bottom-8 right-10 opacity-0 invisible transition duration-300 shadow-xl items-center justify-center text-[#666]">
                 <FaChevronUp />
             </div>
