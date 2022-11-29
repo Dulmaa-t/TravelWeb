@@ -19,7 +19,7 @@ const PlaceSchema: Schema = new Schema<IPlace>({
     },
 });
 
-export default mongoose.models.Tour || model<
+export default mongoose.models.Place || model<
     Schema<
         any,
         Model<any, any, any, any, any>,
