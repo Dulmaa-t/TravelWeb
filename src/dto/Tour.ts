@@ -33,3 +33,10 @@ export interface IPost {
     title: string;
     brief: string;
 }
+
+export interface IPlace {
+    _id?: string;
+    country: ObjectId | string | ICountry;
+    tour_num: number;
+    thumbnail:string;
+}
