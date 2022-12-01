@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useNavigationContext } from "../../custom/Navigation/_context";
+import { useRouter } from "next/router";
 const mobileNavlist = 
     [
         {
@@ -40,7 +41,12 @@ const mobileNavlist =
 const MobileNav = () => {
     const [fixHeader, setFixHeader] = useState<boolean>(false)
     const { isSidebarOpen } =  useNavigationContext();
-
+    const router =  useRouter();
+    const { closeSidebar } = useNavigationContext();
+    const handleClick = (href:string)=>{
+        router.push(href);
+        closeSidebar!();
+    }
     useEffect(() => {
         const handleScroll = (_: any) => {
             if (window.scrollY >= 400) {
@@ -63,9 +69,9 @@ const MobileNav = () => {
                 {
                     mobileNavlist.map(({name, type, path}, index) => (
                         type === 'button' ? <button className="rounded bg-warning py-2">{name}</button> :
-                        <Link href={path}>
+                        <button onClick={()=>handleClick(path)}>
                             <p style={{color: fixHeader ? 'black' : 'white'}} className={`py-[13px] px-[18px] text-[15px]`}>{name}</p>
-                        </Link> 
+                        </button> 
                     ))
                 }
             </div>

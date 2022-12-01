@@ -38,7 +38,7 @@ const BlogPage: FunctionComponent<BlogPageProps> = (): JSX.Element => {
 
 
     return <DashBoard path="/Blog">
-        <div className="my-20 container mx-auto lg:px-40 md:px-40">
+        <div className="my-20 container mx-auto lg:px-40 md:px-10 sm:px-5">
             <H3 className="text-center">Recent Post</H3>
             <div className="grid lg:grid-cols-3 md:grid-cols-1 gap-4 my-8">
                 {

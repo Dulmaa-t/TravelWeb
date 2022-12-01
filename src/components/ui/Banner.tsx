@@ -30,7 +30,7 @@ export default function Cover() {
             <div>
                 <div className="z-50 relative w-full h-screen">
                     <Image layout="fill" objectFit="cover" src={banner} alt={`art`}/>
-                    <div style={{ backgroundImage: 'linear-gradient(45deg, #2f88fc 0%, #ff5959 100%)' }} className="absolute z-30 w-full h-full top-0 left-0 opacity-40 flex items-center justify-center"></div>
+                    <div style={{ backgroundImage: 'linear-gradient(45deg, #2f88fc 0%, #ff5959 100%)' }} className="absolute z-30 w-full h-full top-0 left-0 opacity-20 flex items-center justify-center"></div>
                     <div className="absolute w-full h-full z-40 flex items-center justify-center">
                         <div className="container mx-auto flex flex-col text-white">
                             <div onClick={openLayer} style={{ transition: '.3s all ease', margin: '0 auto' }} className="relative flex p-10">

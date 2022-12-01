@@ -10,7 +10,7 @@ export interface IPostCard {
 
 const PostCard: FunctionComponent<IPostCard> = ({ el }) => {
     return (
-        <div className="flex flex-col px-2">
+        <div className="flex flex-col px-5">
             <Link className="relative" href={`/`}>
                 <div className=" h-[270px] w-full">
                     <Image layout="fill" objectFit="cover" src={el.thumbnail} alt="" />

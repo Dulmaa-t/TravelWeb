@@ -9,8 +9,8 @@ import footerImg from "../../../public/footer-bg.png";
 const Footer = () => {
     return (
         <>
-            <footer className="h-[620px] w-full z-50 relative">
-                <Image unoptimized priority layout="fill" src={footerImg} alt={`art`} />
+            <footer style={{fontFamily: '"Poppins", Arial, sans-serif'}} className="h-[620px] w-full z-70 relative mt-20">
+                <Image layout="fill" src={footerImg} alt={`art`} />
                 <div style={{ backgroundImage: '#201e25' }}  className="absolute z-30 w-full h-full bottom-0 p-5" >
                     <div className="container mx-auto lg:px-40 md:px-0 w-full mb-24 font-noto grid gap-10 lg:grid-cols-4 text-xs sm:text-sm md:text-base md:grid-cols-4 mt-20">
                         <div className="text-white">

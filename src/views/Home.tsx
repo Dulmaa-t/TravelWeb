@@ -128,7 +128,7 @@ const HomePage: FunctionComponent<HomePageProps> = (): JSX.Element => {
                 }
             </div>
         </div>
-        <div className="h-[658px] w-full z-50 relative">
+        <div className="h-[658px] w-full z-70 relative">
             <Image className="" unoptimized priority layout="fill" src={bg3} alt="bg3" />
             <div className="absolute z-30 w-full h-full bottom-0 p-5">
                 <H3 className="text-center">Tourist Feedback</H3>

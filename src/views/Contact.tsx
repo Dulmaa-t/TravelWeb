@@ -15,7 +15,7 @@ const ContactPage: FunctionComponent<ContactPageProps> = () => {
     const [pins, setPins] = useState<[number, number][]>([]);
 
     return <DashBoard path="/Contact">
-        <div className="grid lg:grid-cols-4 md:grid-cols-2 container mx-auto py-20 px-40">
+        <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-2 container mx-auto py-20 lg:px-40 sm:px-10">
             <div className="flex flex-col p-8 ">
                 <div style={{ margin: '0 auto' }} className="rounded-full bg-black h-[100px] w-[100px] relative">
                     <span className="text-white text-[30px] absolute bottom-9 left-9">
@@ -68,7 +68,7 @@ const ContactPage: FunctionComponent<ContactPageProps> = () => {
                     pins={pins}
                 />
             </div>
-            <div className="lg:my-0 md:my-8 mx-8">
+            <div className="p-8">
                 <form className="bg-grey p-10">
                     <div className="my-4">
                         <Input id="FullName" placeholder="Your Name" />

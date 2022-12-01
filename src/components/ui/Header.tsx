@@ -39,7 +39,7 @@ const navlist: {
             type: 'default'
         },
         {
-            name: "Book Now",
+            name: "Login in",
             path: '#',
             type: 'button'
         },
@@ -48,7 +48,7 @@ const navlist: {
 interface IHeader {
     path: string
 }
-
+ 
 const Header = ({ path }: IHeader) => {
     const chevron = useRef();
     const [fixHeader, setFixHeader] = useState<boolean>(false)
@@ -81,7 +81,7 @@ const Header = ({ path }: IHeader) => {
     }, []);
     return (
         <>
-            <header style={{ transition: "all .3s ease !important", position: fixHeader ? 'fixed' : 'absolute', backgroundColor: fixHeader ? 'white' : 'transparent', boxShadow: fixHeader ? '0 2px 4px 0 rgba(0,0,0,.2)' : 'none' }} className="w-full hidden sm:block md:block z-[80] top-0 left-0">
+            <header style={{ fontFamily: '"Poppins", Arial, sans-serif', transition: "all .3s ease !important", position: fixHeader ? 'fixed' : 'absolute', backgroundColor: fixHeader ? 'white' : 'transparent', boxShadow: fixHeader ? '0 2px 4px 0 rgba(0,0,0,.2)' : 'none' }} className="w-full hidden sm:block md:block z-[80] top-0 left-0">
                 <div className="container mx-auto flex flex-row justify-between">
                     <div className="xl:px-40 lg:px-20 flex">
                         <Link href={'/'}>

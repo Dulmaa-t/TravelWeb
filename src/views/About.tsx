@@ -28,7 +28,7 @@ const AboutPage: FunctionComponent<AboutPageProps> = (): JSX.Element => {
     return (
         <DashBoard path="/About">
             <div className="bg-grey py-20">
-                <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-4 container mx-auto px-40">
+                <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-4 container mx-auto lg:px-40 sm:px-10 px-5">
                     <div className="grid grid-cols-2 gap-4 mr-4">
                         <div className="">
                             <FaMapMarkedAlt className="text-warning text-[60px] my-2" />
@@ -64,14 +64,14 @@ const AboutPage: FunctionComponent<AboutPageProps> = (): JSX.Element => {
                 </div>
             </div>
             <div>
-                <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-4 container mx-auto px-40">
+                <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-4 container mx-auto lg:px-40 md:px-10 px-5">
                     <div className="relative h-[500px] transition-all duration-300"><Image layout="fill" objectFit="cover" src={about} alt={`art`} /></div>
-                    <div className="my-4 items-center px-16">
+                    <div className="my-4 items-center px-5">
                         <h1 className="text-[40px] font-bold my-4" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>Make Your Tour Memorable and Safe With Us</h1>
                         <p className="text-grey-light text-[16px]">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-                        <div className="grid lg:grid-cols-3 md:grid-cols-3 my-8 md: my-4 text-center">
+                        <div className="grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-3 my-8 md: my-4 text-center">
                             <div className="flex flex-col">
-                                <strong className="text-[28px] text-warning"><CountUp  start={1} end={300} /></strong>
+                                <strong className="text-[28px] text-warning"><CountUp start={1} end={300} /></strong>
                                 <span className="text-grey-light text-[16px] my-2" style={{ color: 'rgba(0, 0, 0, 0.7)' }}>Successful Tours</span>
                             </div>
                             <div className="flex flex-col">
@@ -86,49 +86,49 @@ const AboutPage: FunctionComponent<AboutPageProps> = (): JSX.Element => {
                     </div>
                 </div>
             </div>
-            <div className="h-[658px] w-full z-50 relative">
-            <Image className="" unoptimized priority layout="fill" src={bg3} alt="bg3" />
-            <div className="absolute z-30 w-full h-full bottom-0 p-20">
-                <H3 className="text-center">Tourist Feedback</H3>
-                <div className="my-20 container mx-auto lg:px-40 md:px-20">
-                    <section className="w-full h-[20rem] relative">
-                        <Swiper
-                            className="h-full w-full"
-                            slidesPerView={1}
-                            spaceBetween={40}
-                            breakpoints={{
-                                640: {
-                                    slidesPerView: 1,
-                                    spaceBetween: 20,
-                                },
-                                768: {
-                                    slidesPerView: 1,
-                                    spaceBetween: 20,
-                                },
-                                1024: {
-                                    slidesPerView: 3,
-                                    spaceBetween: 50,
-                                },
-                            }}
-                            modules={[Pagination, Scrollbar, Navigation]}
-                            pagination={{ clickable: true }}
-                            autoplay={{
-                                delay: 5000,
-                                disableOnInteraction: false,
-                            }}
-                        >
+            <div className="h-[658px] w-full z-70 relative">
+                <Image className="" unoptimized priority layout="fill" src={bg3} alt="bg3" />
+                <div className="absolute z-30 w-full h-full bottom-0 p-5">
+                    <H3 className="text-center">Tourist Feedback</H3>
+                    <div className="my-20 container mx-auto xl:px-40 lg:px-0 md:px-10 sm:px-10">
+                        <section className="w-full h-[24rem] relative">
+                            <Swiper
+                                className="h-full w-full"
+                                slidesPerView={1}
+                                spaceBetween={20}
+                                breakpoints={{
+                                    640: {
+                                        slidesPerView: 1,
+                                        spaceBetween: 20,
+                                    },
+                                    768: {
+                                        slidesPerView: 1,
+                                        spaceBetween: 30,
+                                    },
+                                    1024: {
+                                        slidesPerView: 3,
+                                        spaceBetween: 50,
+                                    },
+                                }}
+                                modules={[Pagination, Scrollbar, Navigation]}
+                                pagination={{ clickable: true }}
+                                autoplay={{
+                                    delay: 5000,
+                                    disableOnInteraction: false,
+                                }}
+                            >
 
-                            {feedbackData?.result.map((el, index) => (
-                                <SwiperSlide className="rounded-2xl overflow-hidden" key={index} >
-                                    <div><SliderCard el={el} /></div>
-                                </SwiperSlide>
-                            ))}
+                                {feedbackData?.result.map((el, index) => (
+                                    <SwiperSlide className="rounded-2xl overflow-hidden" key={index} >
+                                        <div><SliderCard el={el} /></div>
+                                    </SwiperSlide>
+                                ))}
 
-                        </Swiper>
-                    </section>
+                            </Swiper>
+                        </section>
+                    </div>
                 </div>
             </div>
-        </div>
         </DashBoard>
     )
 }

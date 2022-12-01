@@ -29,9 +29,9 @@ const DestinationPage: FunctionComponent<DestinationPageProps> = (): JSX.Element
 
     return <DashBoard path="/Destination">
         <div>
-            <div className="py-20 container mx-auto lg:px-40 sm:px-10">
+            <div className="py-20 container mx-auto lg:px-40">
                 <H3 className="text-center">Best Place Destination</H3>
-                <div className="grid lg:grid-cols-4 md:grid-cols-1 text-center my-10 ">
+                <div className="grid lg:grid-cols-4 md:grid-cols-1 text-center my-10">
                     {
                         placeData?.result.map((el, index) => (
                             <div key={index}><PlaceCard el={el} /></div>

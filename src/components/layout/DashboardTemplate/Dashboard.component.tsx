@@ -34,7 +34,7 @@ const DashboardComponents: FC<DashBoardProps> = ({ children, title, path }) => {
                 )
             }
             <MobileNav />
-            <div className="h-full">
+            <div style={{fontFamily: '"Poppins", Arial, sans-serif'}} className="h-full">
                 {children}
             </div>
             <div>
