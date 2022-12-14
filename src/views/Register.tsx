@@ -21,7 +21,7 @@ const RegisterPage: FunctionComponent<RegisterPageProps> = (): JSX.Element => {
                     </div>
                     <div className="flex flex-row w-8 h-8 px-6">
                         <div className="flex mr-2">
-                            <input className="" id="remember" type="checkbox" />
+                            <input className="bg-white active:bg-[#000]" id="remember" type="checkbox" />
                         </div>
                         <div className="flex items-center">
                             <p className="mr-1 text-[#999]">Save</p>
