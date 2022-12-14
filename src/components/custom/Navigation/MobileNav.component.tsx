@@ -31,18 +31,18 @@ const mobileNavlist =
             type: 'default'
         },
         {
-            name: "Book Now",
-            path: '#',
+            name: "Log In",
+            path: '/Register',
             type: 'button'
         },
     ]  
-
 
 const MobileNav = () => {
     const [fixHeader, setFixHeader] = useState<boolean>(false)
     const { isSidebarOpen } =  useNavigationContext();
     const router =  useRouter();
     const { closeSidebar } = useNavigationContext();
+
     const handleClick = (href:string)=>{
         router.push(href);
         closeSidebar!();

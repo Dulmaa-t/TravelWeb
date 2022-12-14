@@ -39,9 +39,9 @@ const navlist: {
             type: 'default'
         },
         {
-            name: "Login in",
-            path: '#',
-            type: 'button'
+            name: "Log In",
+            path: '/Register',
+            type: 'default'
         },
     ]
 
