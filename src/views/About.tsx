@@ -23,7 +23,7 @@ import 'swiper/css/scrollbar';
 export interface AboutPageProps { }
 
 const AboutPage: FunctionComponent<AboutPageProps> = (): JSX.Element => {
-    const { data: feedbackData } = useGetFeedbacksQuery();
+    const { data: feedbackData} = useGetFeedbacksQuery();
 
     return (
         <DashBoard path="/About">

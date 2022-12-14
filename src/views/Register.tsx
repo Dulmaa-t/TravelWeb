@@ -29,7 +29,7 @@ const RegisterPage: FunctionComponent<RegisterPageProps> = (): JSX.Element => {
                         </div>
                     </div>
                     <div className="flex w-full px-4 py-4">
-                        <button className="bg-black px-8 py-4 text-white w-full rounded-md">confirm</button>
+                        <button className="bg-black px-8 py-4 text-white w-full rounded-md" type="submit">confirm</button>
                     </div>
                 </div>
             </form>

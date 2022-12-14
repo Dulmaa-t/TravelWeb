@@ -31,9 +31,9 @@ const mobileNavlist =
             type: 'default'
         },
         {
-            name: "Log In",
+            name: "LogIn",
             path: '/Register',
-            type: 'button'
+            type: 'default'
         },
     ]  
 
