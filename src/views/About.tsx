@@ -69,7 +69,7 @@ const AboutPage: FunctionComponent<AboutPageProps> = (): JSX.Element => {
                     <div className="my-4 items-center px-5">
                         <h1 className="text-[40px] font-bold my-4" style={{ color: 'rgba(0, 0, 0, 0.8)' }}>Make Your Tour Memorable and Safe With Us</h1>
                         <p className="text-grey-light text-[16px]">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-                        <div className="grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-3 my-8 md: my-4 text-center">
+                        <div className="grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-3 my-8 md:my-4 text-center">
                             <div className="flex flex-col">
                                 <strong className="text-[28px] text-warning"><CountUp start={1} end={300} /></strong>
                                 <span className="text-grey-light text-[16px] my-2" style={{ color: 'rgba(0, 0, 0, 0.7)' }}>Successful Tours</span>

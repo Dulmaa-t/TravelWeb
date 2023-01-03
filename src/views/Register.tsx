@@ -1,4 +1,4 @@
-import { useEffect, FunctionComponent } from "react";
+import { useEffect, useState, FunctionComponent } from "react";
 import { DashBoard } from "../components/layout/DashboardTemplate";
 import { Text } from "../components/custom/Typography";
 import Link from "next/link";
@@ -11,6 +11,61 @@ export interface RegisterPageProps { }
 
 const RegisterPage: FunctionComponent<RegisterPageProps> = (): JSX.Element => {
     const { locale } = useRouter();
+    const route = useRouter();
+    const [enteredId, setEnteredId] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
+    const [isCheck, setIsCheck] = useState(false);
+    const [error, setError] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [enteredPassword, setEnteredPassword] =useState("");
+    
+    
+
+    const setLoginUser = async () => {
+        if (enteredId.trim() === "" || enteredPassword.trim() === "") {
+            setErrorMessage("정보를 입력해주세요.");
+            setError(true);
+        } else {
+            try {
+                const formData = {
+                    loginId: enteredId,
+                    password: enteredPassword,
+                };
+                setLoading(true);
+                const {data} = await axios.post(`${process.env.url}/login`, formData);
+                if (data) {
+                    window.localStorage.setItem("user", JSON.stringify(data));
+                    window.localStorage.setItem("isFirst", data.isFirstLogin);
+                    // setUserId(data.result.id);
+                    if (isCheck) {
+                        localStorage.setItem("prevEmail", enteredId);
+                    }
+                    // route.back();
+                    Router.push("/");
+                }
+            } catch (error) {
+                if (error) {
+                   {/* if (error.response) {
+                        switch (error.response.status) {
+                            case 405:
+                                setErrorMessage("아이디 혹은 비밀번호가 일치하지 않습니다.");
+                                setError(true);
+                                setLoading(false);
+                                break;
+                            case 404:
+                                setErrorMessage("이메일 인증이 되어 있지 않습니다.");
+                                setError(true);
+                                setLoading(false);
+                                break;
+                            default:
+                                return;
+                        }
+                    } */}
+                }
+            }
+        }
+    };
+
     const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
     return <DashBoard path="/Register">
         <div className="w-full pt-8 justify-center items-center flex flex-col container mx-auto">
